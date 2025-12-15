@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  hermes-lite:
+    build: .
+    container_name: hermes-lite
+    ports:
+      - "8780:8780"
+    volumes:
+      - ./data:/data
+      - ./config.yaml:/app/config.yaml:ro
+    environment:
+      - HERMES_CONFIG=/app/config.yaml
+    networks:
+      - agentic-stack_default
+    restart: unless-stopped
+    # GPU support for reranker
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+networks:
+  agentic-stack_default:
+    external: true

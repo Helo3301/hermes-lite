@@ -1,0 +1,470 @@
+{
+  "metadata": {
+    "created": "2025-12-12",
+    "total_queries": 65,
+    "description": "Hermes-specific test queries for v2 benchmarking"
+  },
+  "paper_lookup": [
+    {
+      "id": "pl_01",
+      "query": "What is RAG?",
+      "type": "simple",
+      "expected_concepts": ["retrieval augmented generation", "knowledge retrieval", "generation"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pl_02",
+      "query": "What is context dilution in retrieval systems?",
+      "type": "simple",
+      "expected_concepts": ["context dilution", "retrieval depth", "irrelevant context"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pl_03",
+      "query": "Define dense retrieval",
+      "type": "simple",
+      "expected_concepts": ["dense retrieval", "embeddings", "semantic similarity"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pl_04",
+      "query": "What is BM25?",
+      "type": "simple",
+      "expected_concepts": ["BM25", "term frequency", "sparse retrieval"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pl_05",
+      "query": "What is the SEAL-RAG approach?",
+      "type": "simple",
+      "expected_concepts": ["SEAL-RAG", "fixed-budget", "evidence replacement"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pl_06",
+      "query": "What is Self-RAG?",
+      "type": "simple",
+      "expected_concepts": ["Self-RAG", "self-reflection", "critique tokens"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pl_07",
+      "query": "What is CRAG?",
+      "type": "simple",
+      "expected_concepts": ["CRAG", "corrective", "retrieval evaluation"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pl_08",
+      "query": "What is multi-hop question answering?",
+      "type": "simple",
+      "expected_concepts": ["multi-hop", "reasoning chain", "multiple documents"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pl_09",
+      "query": "What is the HotpotQA benchmark?",
+      "type": "simple",
+      "expected_concepts": ["HotpotQA", "multi-hop", "supporting facts"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pl_10",
+      "query": "What is reranking in information retrieval?",
+      "type": "simple",
+      "expected_concepts": ["reranking", "cross-encoder", "relevance scoring"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pl_11",
+      "query": "What is DPR (Dense Passage Retrieval)?",
+      "type": "simple",
+      "expected_concepts": ["DPR", "dense passage retrieval", "bi-encoder"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pl_12",
+      "query": "What are hallucinations in LLMs?",
+      "type": "simple",
+      "expected_concepts": ["hallucination", "factual errors", "grounding"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pl_13",
+      "query": "What is query expansion?",
+      "type": "simple",
+      "expected_concepts": ["query expansion", "synonyms", "related terms"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pl_14",
+      "query": "What is reciprocal rank fusion?",
+      "type": "simple",
+      "expected_concepts": ["RRF", "fusion", "rank combination"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pl_15",
+      "query": "What is chunking in RAG systems?",
+      "type": "simple",
+      "expected_concepts": ["chunking", "text segmentation", "context window"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pl_16",
+      "query": "What is the RAGAS evaluation framework?",
+      "type": "simple",
+      "expected_concepts": ["RAGAS", "faithfulness", "answer relevancy"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pl_17",
+      "query": "What is knowledge graph enhanced retrieval?",
+      "type": "simple",
+      "expected_concepts": ["knowledge graph", "entities", "relationships"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pl_18",
+      "query": "What is hybrid search in RAG?",
+      "type": "simple",
+      "expected_concepts": ["hybrid search", "vector", "keyword", "combination"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pl_19",
+      "query": "What is the MS MARCO dataset?",
+      "type": "simple",
+      "expected_concepts": ["MS MARCO", "passage ranking", "question answering"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pl_20",
+      "query": "What is iterative retrieval?",
+      "type": "simple",
+      "expected_concepts": ["iterative", "multi-round", "refinement"],
+      "difficulty": "medium"
+    }
+  ],
+  "cross_paper": [
+    {
+      "id": "cp_01",
+      "query": "How does SEAL-RAG address context dilution?",
+      "type": "multi_hop",
+      "expected_connections": ["SEAL-RAG", "context dilution", "fixed-budget"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cp_02",
+      "query": "What datasets are used to evaluate CRAG?",
+      "type": "multi_hop",
+      "expected_connections": ["CRAG", "evaluation datasets"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cp_03",
+      "query": "How does Self-RAG differ from standard RAG?",
+      "type": "multi_hop",
+      "expected_connections": ["Self-RAG", "standard RAG", "self-reflection"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cp_04",
+      "query": "What methods does SEAL-RAG combine for entity extraction?",
+      "type": "multi_hop",
+      "expected_connections": ["SEAL-RAG", "entity extraction", "NER"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "cp_05",
+      "query": "How do graph-based RAG systems handle multi-hop queries?",
+      "type": "multi_hop",
+      "expected_connections": ["graph RAG", "multi-hop", "traversal"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "cp_06",
+      "query": "What role does reranking play in improving RAG accuracy?",
+      "type": "multi_hop",
+      "expected_connections": ["reranking", "RAG", "accuracy"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cp_07",
+      "query": "How does query decomposition help with complex questions?",
+      "type": "multi_hop",
+      "expected_connections": ["query decomposition", "complex questions", "sub-queries"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cp_08",
+      "query": "What evidence does the literature provide for dense vs sparse retrieval performance?",
+      "type": "multi_hop",
+      "expected_connections": ["dense retrieval", "sparse retrieval", "performance comparison"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "cp_09",
+      "query": "How do papers measure faithfulness in RAG outputs?",
+      "type": "multi_hop",
+      "expected_connections": ["faithfulness", "measurement", "RAGAS"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cp_10",
+      "query": "What solutions have been proposed for hallucination reduction in RAG?",
+      "type": "multi_hop",
+      "expected_connections": ["hallucination", "reduction", "grounding"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cp_11",
+      "query": "How does the fixed-budget approach in SEAL-RAG compare to expanding context?",
+      "type": "multi_hop",
+      "expected_connections": ["fixed-budget", "context expansion", "SEAL-RAG"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "cp_12",
+      "query": "What benchmarks show improvement from iterative retrieval methods?",
+      "type": "multi_hop",
+      "expected_connections": ["iterative retrieval", "benchmarks", "improvement"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "cp_13",
+      "query": "How do papers integrate knowledge graphs with vector retrieval?",
+      "type": "multi_hop",
+      "expected_connections": ["knowledge graph", "vector retrieval", "integration"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "cp_14",
+      "query": "What techniques are used for entity linking in RAG pipelines?",
+      "type": "multi_hop",
+      "expected_connections": ["entity linking", "RAG", "knowledge base"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cp_15",
+      "query": "How does context window size affect RAG performance according to research?",
+      "type": "multi_hop",
+      "expected_connections": ["context window", "performance", "research findings"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cp_16",
+      "query": "What preprocessing steps improve retrieval quality?",
+      "type": "multi_hop",
+      "expected_connections": ["preprocessing", "retrieval quality", "chunking"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cp_17",
+      "query": "How do LLMs assist in the retrieval process according to recent papers?",
+      "type": "multi_hop",
+      "expected_connections": ["LLM", "retrieval", "query generation"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cp_18",
+      "query": "What are the trade-offs between retrieval depth and relevance?",
+      "type": "multi_hop",
+      "expected_connections": ["retrieval depth", "relevance", "trade-offs"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cp_19",
+      "query": "How do papers address the lost-in-the-middle problem?",
+      "type": "multi_hop",
+      "expected_connections": ["lost-in-the-middle", "position", "context"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "cp_20",
+      "query": "What role does fine-tuning play in RAG system optimization?",
+      "type": "multi_hop",
+      "expected_connections": ["fine-tuning", "RAG", "optimization"],
+      "difficulty": "medium"
+    }
+  ],
+  "comparative": [
+    {
+      "id": "cmp_01",
+      "query": "Compare dense and sparse retrieval approaches",
+      "type": "comparative",
+      "expected_entities": ["dense retrieval", "sparse retrieval", "BM25", "embeddings"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cmp_02",
+      "query": "What are the differences between SEAL-RAG and CRAG?",
+      "type": "comparative",
+      "expected_entities": ["SEAL-RAG", "CRAG"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "cmp_03",
+      "query": "How do graph-based RAG methods differ from vector-only approaches?",
+      "type": "comparative",
+      "expected_entities": ["graph RAG", "vector retrieval"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "cmp_04",
+      "query": "Compare single-shot vs iterative retrieval strategies",
+      "type": "comparative",
+      "expected_entities": ["single-shot", "iterative", "retrieval"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cmp_05",
+      "query": "What are the tradeoffs between different reranking approaches?",
+      "type": "comparative",
+      "expected_entities": ["reranking", "cross-encoder", "bi-encoder"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cmp_06",
+      "query": "Compare HotpotQA and 2WikiMultiHopQA as evaluation benchmarks",
+      "type": "comparative",
+      "expected_entities": ["HotpotQA", "2WikiMultiHopQA"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "cmp_07",
+      "query": "How do different chunking strategies compare in RAG systems?",
+      "type": "comparative",
+      "expected_entities": ["chunking", "semantic", "fixed-size"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cmp_08",
+      "query": "Compare Self-RAG with CRAG approaches",
+      "type": "comparative",
+      "expected_entities": ["Self-RAG", "CRAG"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "cmp_09",
+      "query": "What are the differences between retrieval augmentation and fine-tuning?",
+      "type": "comparative",
+      "expected_entities": ["retrieval augmentation", "fine-tuning", "knowledge"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cmp_10",
+      "query": "Compare different embedding models for RAG retrieval",
+      "type": "comparative",
+      "expected_entities": ["embedding models", "retrieval", "performance"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cmp_11",
+      "query": "How do open-domain and closed-domain RAG systems compare?",
+      "type": "comparative",
+      "expected_entities": ["open-domain", "closed-domain", "RAG"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cmp_12",
+      "query": "Compare abstractive and extractive approaches in RAG generation",
+      "type": "comparative",
+      "expected_entities": ["abstractive", "extractive", "generation"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cmp_13",
+      "query": "What are the differences between query expansion and query rewriting?",
+      "type": "comparative",
+      "expected_entities": ["query expansion", "query rewriting"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cmp_14",
+      "query": "Compare prompt-based vs fine-tuned RAG systems",
+      "type": "comparative",
+      "expected_entities": ["prompt-based", "fine-tuned", "RAG"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cmp_15",
+      "query": "How do different fusion methods compare for hybrid retrieval?",
+      "type": "comparative",
+      "expected_entities": ["fusion", "hybrid", "RRF", "weighted"],
+      "difficulty": "hard"
+    }
+  ],
+  "exploratory": [
+    {
+      "id": "exp_01",
+      "query": "What are the main challenges in RAG systems?",
+      "type": "exploratory",
+      "expected_topics": ["challenges", "limitations", "problems"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "exp_02",
+      "query": "What advances have been made in multi-hop question answering?",
+      "type": "exploratory",
+      "expected_topics": ["multi-hop", "advances", "methods"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "exp_03",
+      "query": "How has RAG research evolved recently?",
+      "type": "exploratory",
+      "expected_topics": ["evolution", "trends", "improvements"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "exp_04",
+      "query": "What are common evaluation benchmarks for RAG?",
+      "type": "exploratory",
+      "expected_topics": ["benchmarks", "evaluation", "datasets"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "exp_05",
+      "query": "What techniques reduce hallucination in RAG systems?",
+      "type": "exploratory",
+      "expected_topics": ["hallucination", "reduction", "grounding"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "exp_06",
+      "query": "What are emerging trends in retrieval augmented generation?",
+      "type": "exploratory",
+      "expected_topics": ["trends", "emerging", "future"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "exp_07",
+      "query": "How are knowledge graphs being used in modern RAG systems?",
+      "type": "exploratory",
+      "expected_topics": ["knowledge graph", "usage", "integration"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "exp_08",
+      "query": "What are the best practices for RAG system design?",
+      "type": "exploratory",
+      "expected_topics": ["best practices", "design", "architecture"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "exp_09",
+      "query": "What open problems remain in retrieval augmented generation?",
+      "type": "exploratory",
+      "expected_topics": ["open problems", "future research", "challenges"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "exp_10",
+      "query": "How is the field addressing scalability in RAG systems?",
+      "type": "exploratory",
+      "expected_topics": ["scalability", "efficiency", "performance"],
+      "difficulty": "hard"
+    }
+  ]
+}

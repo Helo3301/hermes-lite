@@ -1,0 +1,1413 @@
+{
+  "config": {
+    "sample_size": 200,
+    "top_k": 3
+  },
+  "summary": {
+    "precision": 0.3783333333333335,
+    "recall": 0.565,
+    "f1": 0.4530000000000002
+  },
+  "results": [
+    {
+      "question_id": "5a83a7e15542992ef85e2347",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a8466a75542993344746108",
+      "question_type": "bridge",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5ac2758b55429963665199c3",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ab9d6ef5542994dbf01985b",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a7f53ff5542992097ad2f17",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a7220f055429971e9dc92ac",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5ac00f795542996f0d89cb16",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ac3ac8255429939154138ad",
+      "question_type": "comparison",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a8b83bc55429949d91db5c0",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a75eca555429976ec32bca8",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a84a7f95542992a431d1a85",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ab71b5c5542991d3222377e",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ab5574b554299488d4d994e",
+      "question_type": "bridge",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5a7a33205542996a35c1712f",
+      "question_type": "bridge",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5a8241a855429940e5e1a819",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ae2eda355429928c4239570",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5adf3c155542993a75d2643a",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a7319bc5542992359bc3235",
+      "question_type": "comparison",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ae7edee554299540e5a56ad",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a798f8c5542994bb9457023",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a8e3ed7554299068b959e82",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5adfee9c55429906c02daa8a",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a8f51185542992414482a3d",
+      "question_type": "bridge",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5a84b5975542991dd0999da3",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a8bc29a5542995d1e6f1446",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ae5415055429908b63265b7",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ae39e9c5542990afbd1e195",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a7f244255429934daa2fcec",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a82bc7455429940e5e1a926",
+      "question_type": "bridge",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5a82817555429954d2e2eb5a",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5ab4774d5542991751b4d781",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5adc396155429944faac2479",
+      "question_type": "comparison",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a791ce955429974737f798e",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5abced075542993a06baf9ac",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a8a575a554299515336136e",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5ae612f3554299546bf83065",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a8db348554299068b959dc2",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5abeebe25542993fe9a41d9c",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a70f0a75542994082a3e403",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a711c535542994082a3e59b",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ac308135542990b17b154f4",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5ab5b0f75542992aa134a38c",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a80b35c5542992bc0c4a7b8",
+      "question_type": "bridge",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5a8782f25542996e4f308818",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a7a4f335542990198eaf11e",
+      "question_type": "comparison",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a721e0e55429971e9dc928d",
+      "question_type": "comparison",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a8501915542997175ce1f5a",
+      "question_type": "comparison",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5ab465095542991751b4d75a",
+      "question_type": "bridge",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5ae16d9655429920d52343ce",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5aba71b155429955dce3ee2a",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a84cf175542992a431d1aa2",
+      "question_type": "comparison",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5ac514d05542994611c8b372",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a7f22005542993067513656",
+      "question_type": "comparison",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a8e27d45542995a26add46a",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5ac2659b55429963665199a1",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ac18b585542994ab5c67d76",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a88f7855542993b751ca8da",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ab8869155429916710eb081",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a8efba955429918e830d173",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5adfc06d55429906c02daa2a",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a8078d85542995d8a8ddf78",
+      "question_type": "comparison",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a76c98855429972597f13d0",
+      "question_type": "bridge",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5adf043b5542993a75d263d4",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a8e36835542995085b373e2",
+      "question_type": "comparison",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ab741005542992aa3b8c800",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5ae457a95542996836b02c85",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ae346365542991a06ce9985",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ae694a15542991bbc976141",
+      "question_type": "bridge",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5ab3c270554299233954ff9e",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5abc23c45542993a06baf896",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5adea9ea55429939a52fe934",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a733c925542991f9a20c6b7",
+      "question_type": "comparison",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5a8b3af455429971feec467b",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ac09d265542992a796ded39",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5abe4fd95542991f6610613d",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5ab913205542991b5579f0e0",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5adfff0755429925eb1afbce",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ade6eb65542992fa25da782",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5adea61155429939a52fe922",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a8459aa5542996488c2e51e",
+      "question_type": "bridge",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5a7ce444554299683c1c63c1",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5addffff5542992200553bdd",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a7f38e255429930675136b6",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5adce3b95542990d50227d56",
+      "question_type": "comparison",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5ade8b2655429975fa854eff",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a74fd6d5542993748c8977d",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ae765185542995703ce8c0f",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a89e98955429946c8d6ea0c",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a7e0bb65542997cc2c4750a",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5adfdef9554299025d62a36b",
+      "question_type": "bridge",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5a7b76225542997c3ec9719c",
+      "question_type": "comparison",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5adc7dbf5542994d58a2f618",
+      "question_type": "comparison",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a7b63eb55429931da12ca7e",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a86458b5542991e771815ec",
+      "question_type": "bridge",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    {
+      "question_id": "5a7d043755429909bec768f7",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5adfa92d55429942ec259ae0",
+      "question_type": "comparison",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ac3bab155429939154138fb",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a8393665542990548d0b1ea",
+      "question_type": "comparison",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ae446fc5542995ad6573d24",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5abd05e655429965836004f1",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ab5d4eb5542992aa134a3aa",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a72af155542992359bc316c",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5ade636255429939a52fe896",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a8b036d55429971feec45fe",
+      "question_type": "comparison",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a89e47f5542992e4fca8457",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5add016e5542992c1e3a250b",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ab8736455429916710eb058",
+      "question_type": "comparison",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a85ae455542997175ce1ff0",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ae705725542995703ce8bbc",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ab870ee5542990e739ec8f6",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5abaee845542996606241696",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ac3090d5542990b17b154fc",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5abe535055429976d4830aea",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5abb17e75542996cc5e49fa2",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5add78bf5542992ae4cec57b",
+      "question_type": "comparison",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5aba67c255429955dce3ee10",
+      "question_type": "comparison",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a79bed05542994bb9457053",
+      "question_type": "comparison",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a728dc65542992359bc30ef",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5abd0097554299700f9d7956",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ae056c755429945ae959319",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a886b7555429938390d3f4d",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ae234385542992decbdcc59",
+      "question_type": "bridge",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5a7730015542994aec3b7210",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ab97cd0554299753720f81a",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a8e42d15542995a26add4a6",
+      "question_type": "comparison",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5abd7aba55429924427fcfed",
+      "question_type": "comparison",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5ab28c89554299340b525513",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a7e08b55542997cc2c474fe",
+      "question_type": "bridge",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5abb30755542996cc5e49fd8",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ac07fff554299294b219006",
+      "question_type": "comparison",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a8ec02e5542995a26add501",
+      "question_type": "bridge",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5a769b0d5542993569682c50",
+      "question_type": "comparison",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a886886554299206df2b258",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5adbe0df554299438c868cc0",
+      "question_type": "comparison",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a7dbc175542995ed0d1666b",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a7133565542994082a3e65c",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a7b5af7554299042af8f752",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a7f40de5542992e7d278cc8",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a9052765542995651fb513d",
+      "question_type": "comparison",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a8408a9554299123d8c21d3",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a7616755542992d0ec06028",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a7dedef5542995f4f40231a",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ac325495542995ef918c12e",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a7faed65542994857a767b6",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ab56f7a554299637185c59a",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5aba9d7955429901930fa85f",
+      "question_type": "bridge",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5adfecd755429942ec259b90",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a8781b65542993e715abf8f",
+      "question_type": "comparison",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a8a573355429970aeb7029a",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a71278c5542994082a3e5e2",
+      "question_type": "bridge",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5a80c79155429938b61421da",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a79c9395542994bb94570a2",
+      "question_type": "comparison",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5abc25b6554299700f9d77f9",
+      "question_type": "comparison",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5ab2958a554299449642c911",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a84eecd5542994c784dda8e",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a8ad6db55429950cd6afba7",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a78d38455429970f5fffd94",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ae2070a5542994d89d5b313",
+      "question_type": "comparison",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5a75321555429916b0164290",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5abdff775542993f32c2a082",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a7a15d35542996a35c170c4",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ab3acc9554299753aec5985",
+      "question_type": "comparison",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5ac079e9554299294b218fff",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5adc393f5542996e685252e7",
+      "question_type": "comparison",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5abbcfaf5542993f40c73ba9",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a7a9b9a5542990198eaf160",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5ae81032554299540e5a572a",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ae28f43554299492dc91c2f",
+      "question_type": "comparison",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ab9bb8355429970cfb8eb8b",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a8eed625542995085b374b9",
+      "question_type": "bridge",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5a83880e554299123d8c214e",
+      "question_type": "bridge",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5adf75e35542993344016c98",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5ae6152d5542996de7b71b38",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ab6ba045542995eadef007e",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ab7de455542992aa3b8c864",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ab207f65542993be8fa98b8",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ade7fa3554299728e26c727",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ab5487b554299494045ef68",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ae2c8b05542992decbdcd9d",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ab33ef955429969a97a810e",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a8af1e255429950cd6afc28",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a84f06f5542994c784dda92",
+      "question_type": "comparison",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a80ae105542992bc0c4a7a2",
+      "question_type": "comparison",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a80e468554299260e20a1a9",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ae54c085542992663a4f1c4",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5adbf0a255429947ff17385a",
+      "question_type": "comparison",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5ae6fee3554299572ea54670",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ac2a3c7554299218029dadb",
+      "question_type": "comparison",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5ac289ff5542996366519a02",
+      "question_type": "comparison",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a74f8bd5542993748c8976a",
+      "question_type": "bridge",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5a86fde6554299211dda2b7f",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a80b322554299485f5986c8",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ab2861b554299449642c8df",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a874e9b554299211dda2bd3",
+      "question_type": "bridge",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    {
+      "question_id": "5a8fae205542997ba9cb32ec",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5ab90fdd55429916710eb0fc",
+      "question_type": "bridge",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "question_id": "5a85b2895542994c784ddb49",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a8b128455429971feec463b",
+      "question_type": "bridge",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5a8d838955429941ae14dfe5",
+      "question_type": "comparison",
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4
+    },
+    {
+      "question_id": "5aba7cfe554299232ef4a2fd",
+      "question_type": "bridge",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0
+    }
+  ]
+}

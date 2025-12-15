@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HERMES-Lite</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #1a1a2e;
+            color: #eee;
+            min-height: 100vh;
+        }
+        h1 {
+            color: #00d4ff;
+            margin-bottom: 0.5rem;
+        }
+        .subtitle {
+            color: #888;
+            margin-bottom: 2rem;
+        }
+        .dropzone {
+            border: 2px dashed #444;
+            padding: 3rem;
+            text-align: center;
+            border-radius: 12px;
+            margin: 1rem 0;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .dropzone:hover, .dropzone.active {
+            border-color: #00d4ff;
+            background: rgba(0, 212, 255, 0.1);
+        }
+        .dropzone input[type="file"] {
+            display: none;
+        }
+        .dropzone-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .config {
+            display: flex;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        .config label {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        .config input {
+            padding: 0.5rem;
+            border: 1px solid #444;
+            border-radius: 6px;
+            background: #2a2a4e;
+            color: #fff;
+            width: 120px;
+        }
+        .config input:focus {
+            outline: none;
+            border-color: #00d4ff;
+        }
+        .status {
+            margin-top: 2rem;
+        }
+        .status h2 {
+            color: #888;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        .status-item {
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            background: #2a2a4e;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .status-item.success {
+            border-left: 3px solid #00ff88;
+        }
+        .status-item.error {
+            border-left: 3px solid #ff4444;
+        }
+        .status-item.processing {
+            border-left: 3px solid #ffaa00;
+        }
+        .status-item .filename {
+            font-weight: 500;
+        }
+        .status-item .info {
+            color: #888;
+            font-size: 0.85rem;
+        }
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .tab {
+            padding: 0.5rem 1rem;
+            border: 1px solid #444;
+            border-radius: 6px;
+            background: transparent;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .tab:hover {
+            border-color: #00d4ff;
+            color: #00d4ff;
+        }
+        .tab.active {
+            background: #00d4ff;
+            color: #1a1a2e;
+            border-color: #00d4ff;
+        }
+        .panel { display: none; }
+        .panel.active { display: block; }
+        .search-box {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .search-box input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid #444;
+            border-radius: 8px;
+            background: #2a2a4e;
+            color: #fff;
+            font-size: 1rem;
+        }
+        .search-box input:focus {
+            outline: none;
+            border-color: #00d4ff;
+        }
+        .search-box button {
+            padding: 0.75rem 1.5rem;
+            background: #00d4ff;
+            color: #1a1a2e;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .search-box button:hover {
+            background: #00b8e0;
+        }
+        .result {
+            background: #2a2a4e;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+        }
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+        }
+        .result-filename {
+            color: #00d4ff;
+        }
+        .result-rank {
+            color: #888;
+        }
+        .result-content {
+            color: #ccc;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+        .stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .stat {
+            background: #2a2a4e;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+        }
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00d4ff;
+        }
+        .stat-label {
+            color: #888;
+            font-size: 0.85rem;
+        }
+        .doc-list {
+            margin-top: 1rem;
+        }
+        .doc-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            background: #2a2a4e;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
+        .doc-item .doc-name {
+            font-weight: 500;
+        }
+        .doc-item .doc-meta {
+            color: #888;
+            font-size: 0.85rem;
+        }
+        .doc-item button {
+            background: #ff4444;
+            color: white;
+            border: none;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        .doc-item button:hover {
+            background: #cc3333;
+        }
+        .empty {
+            text-align: center;
+            color: #666;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>HERMES-Lite</h1>
+    <p class="subtitle">Minimal RAG Pipeline</p>
+
+    <div class="tabs">
+        <button class="tab active" data-panel="ingest">Ingest</button>
+        <button class="tab" data-panel="search">Search</button>
+        <button class="tab" data-panel="documents">Documents</button>
+    </div>
+
+    <!-- Ingest Panel -->
+    <div id="ingest" class="panel active">
+        <div class="dropzone" id="dropzone">
+            <div class="dropzone-icon">+</div>
+            <div>Drop files here or click to upload</div>
+            <small style="color: #666">PDF, DOCX, MD, TXT, XLSX, HTML</small>
+            <input type="file" id="fileInput" multiple accept=".pdf,.docx,.doc,.md,.txt,.xlsx,.xls,.html,.htm,.epub,.odt,.rtf">
+        </div>
+
+        <div class="config">
+            <label>
+                Chunk size (tokens)
+                <input type="number" id="chunk_size" value="512" min="100" max="2000">
+            </label>
+            <label>
+                Overlap (tokens)
+                <input type="number" id="overlap" value="64" min="0" max="256">
+            </label>
+        </div>
+
+        <div class="status" id="status">
+            <h2>Recent Uploads</h2>
+            <div id="statusList"></div>
+        </div>
+    </div>
+
+    <!-- Search Panel -->
+    <div id="search" class="panel">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Enter your search query...">
+            <button onclick="doSearch()">Search</button>
+        </div>
+        <div class="config">
+            <label>
+                <input type="checkbox" id="useRerank" checked> Use reranker
+            </label>
+            <label>
+                Results
+                <input type="number" id="topK" value="10" min="1" max="50" style="width: 60px">
+            </label>
+        </div>
+        <div id="searchResults"></div>
+    </div>
+
+    <!-- Documents Panel -->
+    <div id="documents" class="panel">
+        <div class="stats" id="stats">
+            <div class="stat">
+                <div class="stat-value" id="docCount">-</div>
+                <div class="stat-label">Documents</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="chunkCount">-</div>
+                <div class="stat-label">Chunks</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="dbSize">-</div>
+                <div class="stat-label">DB Size (MB)</div>
+            </div>
+        </div>
+        <div class="doc-list" id="docList"></div>
+    </div>
+
+    <script>
+        // Tab switching
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.panel).classList.add('active');
+
+                if (tab.dataset.panel === 'documents') {
+                    loadDocuments();
+                }
+            });
+        });
+
+        // Dropzone functionality
+        const dropzone = document.getElementById('dropzone');
+        const fileInput = document.getElementById('fileInput');
+        const statusList = document.getElementById('statusList');
+
+        dropzone.onclick = () => fileInput.click();
+
+        dropzone.ondragover = (e) => {
+            e.preventDefault();
+            dropzone.classList.add('active');
+        };
+
+        dropzone.ondragleave = () => dropzone.classList.remove('active');
+
+        dropzone.ondrop = async (e) => {
+            e.preventDefault();
+            dropzone.classList.remove('active');
+            handleFiles(e.dataTransfer.files);
+        };
+
+        fileInput.onchange = () => handleFiles(fileInput.files);
+
+        async function handleFiles(files) {
+            for (const file of files) {
+                const id = Date.now() + Math.random();
+                const statusItem = document.createElement('div');
+                statusItem.className = 'status-item processing';
+                statusItem.id = `s${id}`;
+                statusItem.innerHTML = `
+                    <span class="filename">${file.name}</span>
+                    <span class="info">Processing...</span>
+                `;
+                statusList.prepend(statusItem);
+
+                const form = new FormData();
+                form.append('file', file);
+                form.append('chunk_size', document.getElementById('chunk_size').value);
+                form.append('overlap', document.getElementById('overlap').value);
+
+                try {
+                    const res = await fetch('/ingest', { method: 'POST', body: form });
+                    const data = await res.json();
+
+                    if (res.ok) {
+                        statusItem.className = 'status-item success';
+                        statusItem.innerHTML = `
+                            <span class="filename">${file.name}</span>
+                            <span class="info">${data.chunks} chunks, ${data.total_tokens} tokens</span>
+                        `;
+                    } else {
+                        throw new Error(data.error || data.detail || 'Unknown error');
+                    }
+                } catch (err) {
+                    statusItem.className = 'status-item error';
+                    statusItem.innerHTML = `
+                        <span class="filename">${file.name}</span>
+                        <span class="info">Error: ${err.message}</span>
+                    `;
+                }
+            }
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').onkeypress = (e) => {
+            if (e.key === 'Enter') doSearch();
+        };
+
+        async function doSearch() {
+            const query = document.getElementById('searchInput').value.trim();
+            if (!query) return;
+
+            const resultsDiv = document.getElementById('searchResults');
+            resultsDiv.innerHTML = '<div class="empty">Searching...</div>';
+
+            const params = new URLSearchParams({
+                query,
+                top_k: document.getElementById('topK').value,
+                rerank: document.getElementById('useRerank').checked
+            });
+
+            try {
+                const res = await fetch(`/search?${params}`);
+                const data = await res.json();
+
+                if (data.results.length === 0) {
+                    resultsDiv.innerHTML = '<div class="empty">No results found</div>';
+                    return;
+                }
+
+                resultsDiv.innerHTML = data.results.map((r, i) => `
+                    <div class="result">
+                        <div class="result-header">
+                            <span class="result-filename">${r.filename}</span>
+                            <span class="result-rank">#${i + 1}</span>
+                        </div>
+                        <div class="result-content">${escapeHtml(r.content)}</div>
+                    </div>
+                `).join('');
+            } catch (err) {
+                resultsDiv.innerHTML = `<div class="empty">Error: ${err.message}</div>`;
+            }
+        }
+
+        // Documents functionality
+        async function loadDocuments() {
+            try {
+                const [statsRes, docsRes] = await Promise.all([
+                    fetch('/stats'),
+                    fetch('/documents')
+                ]);
+
+                const stats = await statsRes.json();
+                const docs = await docsRes.json();
+
+                document.getElementById('docCount').textContent = stats.documents;
+                document.getElementById('chunkCount').textContent = stats.chunks;
+                document.getElementById('dbSize').textContent = stats.db_size_mb.toFixed(2);
+
+                const docList = document.getElementById('docList');
+                if (docs.documents.length === 0) {
+                    docList.innerHTML = '<div class="empty">No documents ingested yet</div>';
+                    return;
+                }
+
+                docList.innerHTML = docs.documents.map(d => `
+                    <div class="doc-item" data-id="${d.id}">
+                        <div>
+                            <div class="doc-name">${d.filename}</div>
+                            <div class="doc-meta">${d.chunk_count} chunks | ${new Date(d.ingested_at).toLocaleString()}</div>
+                        </div>
+                        <button onclick="deleteDoc(${d.id}, '${d.filename}')">Delete</button>
+                    </div>
+                `).join('');
+            } catch (err) {
+                console.error('Failed to load documents:', err);
+            }
+        }
+
+        async function deleteDoc(id, filename) {
+            if (!confirm(`Delete "${filename}"?`)) return;
+
+            try {
+                const res = await fetch(`/documents/${id}`, { method: 'DELETE' });
+                if (res.ok) {
+                    loadDocuments();
+                }
+            } catch (err) {
+                alert('Delete failed: ' + err.message);
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+    </script>
+</body>
+</html>

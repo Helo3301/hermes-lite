@@ -1,0 +1,50 @@
+server:
+  host: 0.0.0.0
+  port: 8780
+
+database:
+  path: /data/hermes.db
+
+ollama:
+  host: http://agentic-ollama:11434
+  embed_model: nomic-embed-text
+  embed_batch_size: 32
+  model_timeout: 300
+
+chunking:
+  default_size: 512
+  default_overlap: 64
+  min_size: 100
+  strategy: recursive
+
+search:
+  semantic_weight: 0.65
+  keyword_weight: 0.35
+  rrf_k: 60
+  default_top_k: 10
+
+reranker:
+  enabled: true
+  model: BAAI/bge-reranker-v2-m3
+  device: cuda
+  use_fp16: true
+  batch_size: 32
+
+crawler:
+  default_keywords:
+    - "retrieval augmented generation"
+    - "RAG"
+    - "LLM agents"
+    - "tool use"
+    - "function calling"
+    - "embodied AI"
+    - "robot navigation"
+    - "vision language model"
+  default_categories:
+    - cs.AI   # Artificial Intelligence
+    - cs.LG   # Machine Learning
+    - cs.CL   # Computation and Language
+    - cs.RO   # Robotics
+    - cs.CV   # Computer Vision
+  max_papers_per_day: 10
+  days_back: 7
