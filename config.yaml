@@ -7,7 +7,8 @@ database:
 
 ollama:
   host: http://agentic-ollama:11434
-  embed_model: nomic-embed-text
+  embed_model: bge-m3
+  embed_dim: 1024
   embed_batch_size: 32
   model_timeout: 300
 
@@ -29,6 +30,17 @@ reranker:
   device: cuda
   use_fp16: true
   batch_size: 32
+
+hyde:
+  enabled: true
+  model: "llama3.2:latest"  # Small, fast model for hypothetical generation
+  blend_weight: 0.7         # 70% hypothetical, 30% original query
+
+compression:
+  enabled: true
+  strategy: sentence        # sentence or extractive
+  max_tokens: 2000          # Target max tokens for compressed output
+  preserve_top_k: 2         # Keep top-k chunks fully uncompressed
 
 crawler:
   default_keywords:

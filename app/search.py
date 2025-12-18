@@ -11,6 +11,8 @@ from .retrieval import (
     boost_multi_match_results,
     apply_recency_weight
 )
+from .hyde import HyDEExpander
+from .compression import ContextCompressor, CompressionConfig, compress_for_llm
 
 logger = logging.getLogger(__name__)
 
@@ -129,7 +131,14 @@ class SearchEngine:
         reranker: Optional[Reranker] = None,
         semantic_weight: float = 0.65,
         keyword_weight: float = 0.35,
-        rrf_k: int = 60
+        rrf_k: int = 60,
+        hyde_enabled: bool = True,
+        hyde_model: str = "llama3.2:3b",
+        hyde_blend_weight: float = 0.7,
+        ollama_host: str = "http://localhost:11434",
+        compression_enabled: bool = True,
+        compression_strategy: str = "sentence",
+        compression_max_tokens: int = 2000
     ):
         self.db = database
         self.embed_client = embed_client
@@ -137,6 +146,31 @@ class SearchEngine:
         self.semantic_weight = semantic_weight
         self.keyword_weight = keyword_weight
         self.rrf_k = rrf_k
+
+        # Initialize HyDE expander
+        self.hyde_enabled = hyde_enabled
+        self.hyde = None
+        if hyde_enabled:
+            self.hyde = HyDEExpander(
+                ollama_host=ollama_host,
+                model=hyde_model,
+                embed_fn=embed_client.embed_single,
+                blend_weight=hyde_blend_weight
+            )
+            logger.info(f"HyDE enabled with model {hyde_model}, blend weight {hyde_blend_weight}")
+
+        # Initialize context compressor
+        self.compression_enabled = compression_enabled
+        self.compressor = None
+        if compression_enabled:
+            self.compressor = ContextCompressor(
+                embed_fn=embed_client.embed_single,
+                config=CompressionConfig(
+                    strategy=compression_strategy,
+                    max_tokens=compression_max_tokens
+                )
+            )
+            logger.info(f"Compression enabled: strategy={compression_strategy}, max_tokens={compression_max_tokens}")
 
     def semantic_search(
         self,
@@ -169,6 +203,51 @@ class SearchEngine:
 
         return all_chunks[:limit]
 
+    def compress_results(
+        self,
+        query: str,
+        results: list[dict],
+        max_tokens: Optional[int] = None
+    ) -> dict:
+        """
+        Compress search results for LLM consumption.
+
+        Args:
+            query: The original search query
+            results: Search results with 'content' field
+            max_tokens: Override default max tokens
+
+        Returns:
+            Dict with 'text', 'stats', and original 'results'
+        """
+        if not self.compressor:
+            # No compression - just concatenate
+            text = "\n\n".join(r.get("content", "") for r in results)
+            return {
+                "text": text,
+                "stats": {"compression_ratio": 1.0, "original_tokens": len(text.split())},
+                "results": results
+            }
+
+        compressed = self.compressor.compress(query, results, max_tokens)
+
+        logger.info(
+            f"Compressed {compressed.original_tokens} -> {compressed.compressed_tokens} tokens "
+            f"({compressed.compression_ratio:.1%}), kept {compressed.kept_sentences}/{compressed.total_sentences} sentences"
+        )
+
+        return {
+            "text": compressed.text,
+            "stats": {
+                "original_tokens": compressed.original_tokens,
+                "compressed_tokens": compressed.compressed_tokens,
+                "compression_ratio": compressed.compression_ratio,
+                "kept_sentences": compressed.kept_sentences,
+                "total_sentences": compressed.total_sentences
+            },
+            "results": results
+        }
+
     def search(
         self,
         query: str,
@@ -179,7 +258,8 @@ class SearchEngine:
         use_diversity: bool = True,
         max_per_doc: int = 3,
         use_recency_weight: bool = False,
-        recency_weight: float = 0.10
+        recency_weight: float = 0.10,
+        use_hyde: Optional[bool] = None
     ) -> list[dict]:
         """
         Perform hybrid search with optional reranking and retrieval enhancements.
@@ -194,11 +274,15 @@ class SearchEngine:
             max_per_doc: Max chunks per doc in first pass (when diversity enabled)
             use_recency_weight: Boost newer documents slightly
             recency_weight: How much to weight recency (0.10 = 10% max boost)
+            use_hyde: Use HyDE query expansion (None = use default from init)
 
         Returns:
             List of search results with content, filename, etc.
         """
         logger.info(f"Searching for: {query[:50]}...")
+
+        # Determine if HyDE should be used
+        apply_hyde = use_hyde if use_hyde is not None else self.hyde_enabled
 
         # 1. Query Expansion (Spec 3)
         if use_query_expansion:
@@ -210,8 +294,13 @@ class SearchEngine:
         all_result_sets = []
 
         for q in queries:
-            # 2. Embed query
-            query_embedding = self.embed_client.embed_single(q)
+            # 2. Embed query (with optional HyDE)
+            if apply_hyde and self.hyde:
+                query_embedding, hypothetical = self.hyde.expand_query(q, return_hypothetical=True)
+                if hypothetical:
+                    logger.info(f"HyDE: {hypothetical[:60]}...")
+            else:
+                query_embedding = self.embed_client.embed_single(q)
 
             # 3. Semantic search
             semantic_results = self.semantic_search(
@@ -273,3 +362,61 @@ class SearchEngine:
             logger.info("Applied recency weighting")
 
         return merged
+
+    def search_for_llm(
+        self,
+        query: str,
+        top_k: int = 10,
+        max_tokens: int = 2000,
+        compress: bool = True,
+        **search_kwargs
+    ) -> dict:
+        """
+        Search and optionally compress results for LLM consumption.
+
+        This is a convenience method that combines search with compression,
+        returning context ready to be passed to an LLM.
+
+        Args:
+            query: Natural language search query
+            top_k: Number of results to retrieve before compression
+            max_tokens: Target token limit for compressed output
+            compress: Whether to compress results (default True)
+            **search_kwargs: Additional args passed to search()
+
+        Returns:
+            Dict containing:
+                - text: Compressed context string
+                - stats: Compression statistics
+                - results: Original search results
+                - query: The original query
+        """
+        # Perform search
+        results = self.search(query, top_k=top_k, **search_kwargs)
+
+        if not results:
+            return {
+                "text": "",
+                "stats": {"original_tokens": 0, "compressed_tokens": 0, "compression_ratio": 1.0},
+                "results": [],
+                "query": query
+            }
+
+        # Compress if enabled
+        if compress and self.compressor:
+            compressed = self.compress_results(query, results, max_tokens=max_tokens)
+            compressed["query"] = query
+            return compressed
+        else:
+            # No compression - concatenate results
+            text = "\n\n---\n\n".join(
+                f"[{r.get('filename', 'unknown')}]\n{r.get('content', '')}"
+                for r in results
+            )
+            tokens = int(len(text.split()) * 1.3)  # Approximate token count
+            return {
+                "text": text,
+                "stats": {"original_tokens": tokens, "compressed_tokens": tokens, "compression_ratio": 1.0},
+                "results": results,
+                "query": query
+            }

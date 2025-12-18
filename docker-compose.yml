@@ -9,6 +9,8 @@ services:
     volumes:
       - ./data:/data
       - ./config.yaml:/app/config.yaml:ro
+      - ./scripts:/app/scripts:ro
+      - ./app:/app/app:ro
     environment:
       - HERMES_CONFIG=/app/config.yaml
     networks:

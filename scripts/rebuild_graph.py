@@ -124,8 +124,7 @@ def rebuild_knowledge_graph(db_path: str, use_llm: bool = False, verbose: bool =
                         source_entity_id=source_id,
                         target_entity_id=target_id,
                         relationship_type=rel.relationship_type,
-                        doc_id=doc_id,
-                        evidence=rel.evidence,
+                        evidence_chunk_id=None,  # No chunk ID in rebuild context
                         confidence=rel.confidence,
                     )
                     if rel_id:

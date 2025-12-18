@@ -10,7 +10,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse, JSONResponse
 
 from .database import Database, compute_hash
-from .embed import EmbeddingClient
+from .embed_v2 import EmbeddingClientV2 as EmbeddingClient
 from .ingest import ingest_document
 from .search import SearchEngine, Reranker
 from .search_v2 import SearchV2Pipeline, SearchV2Config, create_search_v2_fn
@@ -47,13 +47,14 @@ async def lifespan(app: FastAPI):
     db = Database(db_path)
     logger.info(f"Database initialized at {db_path}")
 
-    # Initialize embedding client
+    # Initialize embedding client (bge-m3 with Matryoshka support)
     embed_client = EmbeddingClient(
         ollama_host=config['ollama']['host'],
         model=config['ollama']['embed_model'],
+        default_dim=config['ollama'].get('embed_dim', 1024),
         batch_size=config['ollama']['embed_batch_size']
     )
-    logger.info(f"Embedding client initialized: {config['ollama']['embed_model']}")
+    logger.info(f"Embedding client initialized: {config['ollama']['embed_model']} ({config['ollama'].get('embed_dim', 1024)}d)")
 
     # Initialize reranker if enabled
     if config['reranker']['enabled']:
@@ -66,16 +67,25 @@ async def lifespan(app: FastAPI):
     else:
         reranker = None
 
-    # Initialize search engine
+    # Initialize search engine with HyDE and compression support
+    hyde_config = config.get('hyde', {})
+    compression_config = config.get('compression', {})
     search_engine = SearchEngine(
         database=db,
         embed_client=embed_client,
         reranker=reranker,
         semantic_weight=config['search']['semantic_weight'],
         keyword_weight=config['search']['keyword_weight'],
-        rrf_k=config['search']['rrf_k']
+        rrf_k=config['search']['rrf_k'],
+        hyde_enabled=hyde_config.get('enabled', True),
+        hyde_model=hyde_config.get('model', 'llama3.2:3b'),
+        hyde_blend_weight=hyde_config.get('blend_weight', 0.7),
+        ollama_host=config['ollama']['host'],
+        compression_enabled=compression_config.get('enabled', True),
+        compression_strategy=compression_config.get('strategy', 'sentence'),
+        compression_max_tokens=compression_config.get('max_tokens', 2000)
     )
-    logger.info("Search engine initialized")
+    logger.info(f"Search engine initialized (HyDE: {hyde_config.get('enabled', True)}, Compression: {compression_config.get('enabled', True)})")
 
     # Initialize v2 search pipeline
     v2_config = config.get('search_v2', {})
@@ -223,7 +233,8 @@ async def search(
     expand_query: bool = True,
     diversity: bool = True,
     max_per_doc: int = 3,
-    recency_boost: bool = False
+    recency_boost: bool = False,
+    use_hyde: bool = None
 ):
     """
     Search the knowledge base with advanced retrieval features.
@@ -237,6 +248,8 @@ async def search(
         diversity: Apply document diversity (prevents single doc from dominating)
         max_per_doc: Max chunks per document in first pass (soft limit)
         recency_boost: Boost newer documents slightly
+        use_hyde: Use HyDE (Hypothetical Document Embeddings) for improved recall.
+                  None = use server default, True/False = override
 
     Returns:
         List of search results
@@ -250,7 +263,8 @@ async def search(
             use_query_expansion=expand_query,
             use_diversity=diversity,
             max_per_doc=max_per_doc,
-            use_recency_weight=recency_boost
+            use_recency_weight=recency_boost,
+            use_hyde=use_hyde
         )
 
         return {
@@ -270,6 +284,65 @@ async def search(
 
     except Exception as e:
         logger.exception(f"Search failed: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/search/llm")
+async def search_for_llm(
+    query: str,
+    top_k: int = 10,
+    max_tokens: int = 2000,
+    compress: bool = True,
+    rerank: bool = True,
+    doc_filter: str = None,
+    use_hyde: bool = None
+):
+    """
+    Search optimized for LLM consumption with context compression.
+
+    This endpoint returns compressed context ready to be passed to an LLM,
+    reducing token usage while preserving the most relevant information.
+
+    Args:
+        query: Natural language search query
+        top_k: Number of results to retrieve before compression
+        max_tokens: Target token limit for compressed output
+        compress: Whether to apply compression (default True)
+        rerank: Whether to use cross-encoder reranking
+        doc_filter: Optional filename pattern to filter results
+        use_hyde: Use HyDE query expansion (None = server default)
+
+    Returns:
+        Compressed context text with statistics
+    """
+    try:
+        result = search_engine.search_for_llm(
+            query=query,
+            top_k=top_k,
+            max_tokens=max_tokens,
+            compress=compress,
+            rerank=rerank,
+            doc_filter=doc_filter,
+            use_hyde=use_hyde
+        )
+
+        return {
+            "query": result["query"],
+            "context": result["text"],
+            "compression_stats": result["stats"],
+            "source_count": len(result["results"]),
+            "sources": [
+                {
+                    "id": r.get('id'),
+                    "filename": r.get('filename'),
+                    "doc_id": r.get('doc_id')
+                }
+                for r in result["results"]
+            ]
+        }
+
+    except Exception as e:
+        logger.exception(f"LLM search failed: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 
